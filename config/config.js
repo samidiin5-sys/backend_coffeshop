@@ -14,6 +14,13 @@ module.exports ={
     "password": process.env.DB_PASSWORD,
     "database": process.env.DB_NAME_PRODUCTION,
     "host": process.env.DB_HOST || "127.0.0.1",
-    "dialect": process.env.DB_DIALECT || "mysql"
+    "port": process.env.DB_PORT || 3306,
+    "dialect": process.env.DB_DIALECT || "mysql",
+    "dialectOptions": process.env.DB_SSL === "true" || (process.env.DB_HOST && process.env.DB_HOST.includes("aiven")) ? {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    } : {}
   }
 }
