@@ -9,9 +9,6 @@ const productRoutes = require("./routes/product.routes");
 const loginRoutes = require("./routes/login.routes");
 const orderRoutes = require("./routes/order.routes");
 const {verifyToken} = require("./middlewares/auth");
-db.sequelize.authenticate()
-    .then(() => console.log("Database berhasil tersambung"))
-    .catch(err => console.error(err));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
