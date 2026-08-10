@@ -9,7 +9,7 @@ const { verifyToken } = require("../middlewares/auth");
 router.post("/", upload.none(), orderController.createOrder);
 router.get("/:id", orderController.getOrderById);
 
-//ini untuk di kasir jadi harus login dulu
+//ini untuk di kasir dan admin jadi harus login dulu
 router.put("/:id/status", verifyToken, upload.none(), orderController.updateStatusOrder);
 router.get("/",verifyToken, orderController.getAllOrder);
 router.delete("/:id", verifyToken, orderController.deleteOrder);
